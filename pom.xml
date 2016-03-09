@@ -9,6 +9,8 @@
 		<module>jtstack-quartz</module>
 		<module>jtstack-redis</module>
 		<module>jtstack-web</module>
+		<module>jtstack-httpclient</module>
+		<module>jtstack-lucenesolr</module>
 	</modules>
 	<properties>
 		<spring.version>3.0.5.RELEASE</spring.version>
