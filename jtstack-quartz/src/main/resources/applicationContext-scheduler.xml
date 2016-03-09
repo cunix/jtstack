@@ -11,7 +11,7 @@
 	<!-- 定义任务bean -->
 	<bean name="myJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
 		<!-- 指定具体的job类 -->
-		<property name="jobClass" value="cn.itcast.quartz.MyJob" />
+		<property name="jobClass" value="com.jtstack.quartz.demo.MyJob" />
 		<!-- 指定job的名称 -->
 		<property name="name" value="myJob" />
 		<!-- 指定job的分组 -->
