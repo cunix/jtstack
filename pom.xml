@@ -12,6 +12,7 @@
 		<module>jtstack-httpclient</module>
 		<module>jtstack-lucenesolr</module>
 		<module>jtstack-webservice</module>
+		<module>jtstack-logback</module>
 	</modules>
 	<properties>
 		<spring.version>3.0.5.RELEASE</spring.version>
