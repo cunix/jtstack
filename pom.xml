@@ -14,6 +14,7 @@
 		<module>jtstack-webservice</module>
 		<module>jtstack-logback</module>
 		<module>jtstack-mybatis</module>
+		<module>jtstack-rocketmq</module>
 	</modules>
 
 	<!-- 集中定义依赖版本号 -->
