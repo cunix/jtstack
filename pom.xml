@@ -15,6 +15,7 @@
 		<module>jtstack-logback</module>
 		<module>jtstack-mybatis</module>
 		<module>jtstack-rocketmq</module>
+		<module>jtstack-dubbo</module>
 	</modules>
 
 	<!-- 集中定义依赖版本号 -->
