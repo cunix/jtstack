@@ -1,4 +1,4 @@
-package com.jtstack.rocketmq.demo1;
+package com.jtstack.rocketmq.demo;
 
 import java.util.List;
 
@@ -14,16 +14,17 @@ public class Consumer {
 
 	public static void main(String[] args) {
 		DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("PushConsumer");
-		consumer.setNamesrvAddr("172.16.11.24:9876");
+		consumer.setNamesrvAddr("192.168.100.101:9876");
 		try {
 			// 订阅PushTopic下Tag为push的消息
 			consumer.subscribe("PushTopic", "push");
 			// 程序第一次启动从消息队列头取数据
 			consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
 			consumer.registerMessageListener(new MessageListenerConcurrently() {
+				@Override
 				public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> list,ConsumeConcurrentlyContext Context) {
 					Message msg = list.get(0);
-					System.out.println(msg.toString());
+					System.out.println(new String(msg.getBody()));
 					return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
 				}
 			});
@@ -32,4 +33,5 @@ public class Consumer {
 			e.printStackTrace();
 		}
 	}
+
 }

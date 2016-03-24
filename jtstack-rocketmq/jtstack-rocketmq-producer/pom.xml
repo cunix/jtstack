@@ -2,13 +2,16 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.jtstack.jtstack</groupId>
-    <artifactId>jtstack</artifactId>
+    <artifactId>jtstack-rocketmq</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>jtstack-rocketmq</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>jtstack-rocketmq-producer</module>
-  	<module>jtstack-rocketmq-consumer</module>
-  </modules>
+  <artifactId>jtstack-rocketmq-producer</artifactId>
+  <packaging>war</packaging>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.alibaba.rocketmq</groupId>
+  		<artifactId>rocketmq-client</artifactId>
+  		<version>3.4.6</version>
+  	</dependency>
+  </dependencies>
 </project>

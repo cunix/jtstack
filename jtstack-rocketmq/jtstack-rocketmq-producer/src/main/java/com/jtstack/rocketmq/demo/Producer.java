@@ -1,4 +1,4 @@
-package com.jtstack.rocketmq.demo1;
+package com.jtstack.rocketmq.demo;
 
 import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
 import com.alibaba.rocketmq.client.producer.SendResult;
@@ -8,16 +8,16 @@ public class Producer {
 
 	public static void main(String[] args) {
 		DefaultMQProducer producer = new DefaultMQProducer("Producer");
-		producer.setNamesrvAddr("172.16.11.24:9876");
+		producer.setNamesrvAddr("192.168.100.101:9876");
 		try {
 			producer.start();
-			Message msg = new Message("PushTopic", "push", "1", "Just for test.".getBytes());
+			Message msg = new Message("PushTopic", "push", "1", "This Message Form Producer By Wincent!.".getBytes());
 			SendResult result = producer.send(msg);
 			System.out.println("id:" + result.getMsgId() + " result:" + result.getSendStatus());
-			msg = new Message("PushTopic", "push", "2", "Just for test.".getBytes());
+			msg = new Message("PushTopic", "push", "1", "This Message Form Producer By Wincent!..".getBytes());
 			result = producer.send(msg);
 			System.out.println("id:" + result.getMsgId() + " result:" + result.getSendStatus());
-			msg = new Message("PullTopic", "pull", "1", "Just for test.".getBytes());
+			msg = new Message("PushTopic", "push", "1", "This Message Form Producer By Wincent!...".getBytes());
 			result = producer.send(msg);
 			System.out.println("id:" + result.getMsgId() + " result:" + result.getSendStatus());
 		} catch (Exception e) {
@@ -26,4 +26,5 @@ public class Producer {
 			producer.shutdown();
 		}
 	}
+
 }
