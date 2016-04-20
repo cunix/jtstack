@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+targetNamespace="http://www.yto.net.cn/paramsjson.xsd"
+xmlns="http://www.yto.net.cn/paramsjson.xsd"
+>
+  <xs:element name="paramsjson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="methods"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="methods">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="method"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="method">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="reference_no"/>
+        <xs:element ref="params"/>
+        <xs:element ref="tracking_number"/>
+        <xs:sequence>
+          <xs:element ref="shipping_method"/>
+          <xs:element ref="country_code"/>
+          <xs:element ref="weight"/>
+          <xs:element ref="location"/>
+          <xs:element ref="cargo_type"/>
+          <xs:element ref="length"/>
+          <xs:element ref="width"/>
+          <xs:element ref="height"/>
+          <xs:element ref="extra_service"/>
+        </xs:sequence>
+        <xs:sequence>
+          <xs:element ref="configInfo"/>
+          <xs:element ref="listorder"/>
+        </xs:sequence>
+      </xs:choice>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="params">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="reference_no"/>
+        <xs:element ref="shipping_method"/>
+        <xs:element ref="shipping_method_no"/>
+        <xs:element ref="order_weight"/>
+        <xs:element ref="order_pieces"/>
+        <xs:element ref="mail_cargo_type"/>
+        <xs:element ref="return_sign"/>
+        <xs:element ref="buyer_id"/>
+        <xs:element ref="order_info"/>
+        <xs:element ref="shipper"/>
+        <xs:element ref="consignee"/>
+        <xs:element ref="invoice"/>
+        <xs:element ref="extra_service"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="shipping_method_no" type="xs:NCName"/>
+  <xs:element name="order_weight" type="xs:NCName"/>
+  <xs:element name="order_pieces" type="xs:NCName"/>
+  <xs:element name="mail_cargo_type" type="xs:NCName"/>
+  <xs:element name="return_sign" type="xs:NCName"/>
+  <xs:element name="buyer_id" type="xs:NCName"/>
+  <xs:element name="order_info" type="xs:NCName"/>
+  <xs:element name="shipper">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="shipper_name"/>
+        <xs:element ref="shipper_company"/>
+        <xs:element ref="shipper_countrycode"/>
+        <xs:element ref="shipper_province"/>
+        <xs:element ref="shipper_city"/>
+        <xs:element ref="shipper_street"/>
+        <xs:element ref="shipper_postcode"/>
+        <xs:element ref="shipper_areacode"/>
+        <xs:element ref="shipper_telephone"/>
+        <xs:element ref="shipper_mobile"/>
+        <xs:element ref="shipper_email"/>
+        <xs:element ref="shipper_fax"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="shipper_name" type="xs:NCName"/>
+  <xs:element name="shipper_company" type="xs:NCName"/>
+  <xs:element name="shipper_countrycode" type="xs:NCName"/>
+  <xs:element name="shipper_province" type="xs:NCName"/>
+  <xs:element name="shipper_city" type="xs:NCName"/>
+  <xs:element name="shipper_street" type="xs:NCName"/>
+  <xs:element name="shipper_postcode" type="xs:NCName"/>
+  <xs:element name="shipper_areacode" type="xs:NCName"/>
+  <xs:element name="shipper_telephone" type="xs:NCName"/>
+  <xs:element name="shipper_mobile" type="xs:NCName"/>
+  <xs:element name="shipper_email" type="xs:NCName"/>
+  <xs:element name="shipper_fax" type="xs:NCName"/>
+  <xs:element name="consignee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="consignee_name"/>
+        <xs:element ref="consignee_company"/>
+        <xs:element ref="consignee_countrycode"/>
+        <xs:element ref="consignee_province"/>
+        <xs:element ref="consignee_city"/>
+        <xs:element ref="consignee_street"/>
+        <xs:element ref="consignee_postcode"/>
+        <xs:element ref="consignee_areacode"/>
+        <xs:element ref="consignee_telephone"/>
+        <xs:element ref="consignee_mobile"/>
+        <xs:element ref="consignee_email"/>
+        <xs:element ref="consignee_fax"/>
+        <xs:element ref="consignee_certificatetype"/>
+        <xs:element ref="consignee_certificatecode"/>
+        <xs:element ref="consignee_credentials_period"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="consignee_name" type="xs:NCName"/>
+  <xs:element name="consignee_company" type="xs:NCName"/>
+  <xs:element name="consignee_countrycode" type="xs:NCName"/>
+  <xs:element name="consignee_province" type="xs:NCName"/>
+  <xs:element name="consignee_city" type="xs:NCName"/>
+  <xs:element name="consignee_street" type="xs:NCName"/>
+  <xs:element name="consignee_postcode" type="xs:NCName"/>
+  <xs:element name="consignee_areacode" type="xs:NCName"/>
+  <xs:element name="consignee_telephone" type="xs:NCName"/>
+  <xs:element name="consignee_mobile" type="xs:NCName"/>
+  <xs:element name="consignee_email" type="xs:NCName"/>
+  <xs:element name="consignee_fax">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="consignee_certificatetype" type="xs:NCName"/>
+  <xs:element name="consignee_certificatecode" type="xs:NCName"/>
+  <xs:element name="consignee_credentials_period" type="xs:NCName"/>
+  <xs:element name="invoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="invoice_enname"/>
+        <xs:element ref="invoice_cnname"/>
+        <xs:element ref="invoice_quantity"/>
+        <xs:element ref="unit_code"/>
+        <xs:element ref="invoice_unitcharge"/>
+        <xs:element ref="hs_code"/>
+        <xs:element ref="invoice_note"/>
+        <xs:element ref="invoice_url"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="invoice_enname" type="xs:NCName"/>
+  <xs:element name="invoice_cnname" type="xs:NCName"/>
+  <xs:element name="invoice_quantity" type="xs:NCName"/>
+  <xs:element name="unit_code" type="xs:NCName"/>
+  <xs:element name="invoice_unitcharge" type="xs:NCName"/>
+  <xs:element name="hs_code" type="xs:NCName"/>
+  <xs:element name="invoice_note" type="xs:NCName"/>
+  <xs:element name="invoice_url" type="xs:NCName"/>
+  <xs:element name="tracking_number" type="xs:NCName"/>
+  <xs:element name="country_code" type="xs:NCName"/>
+  <xs:element name="weight" type="xs:NCName"/>
+  <xs:element name="location" type="xs:NCName"/>
+  <xs:element name="cargo_type" type="xs:NCName"/>
+  <xs:element name="length" type="xs:NCName"/>
+  <xs:element name="width" type="xs:NCName"/>
+  <xs:element name="height" type="xs:NCName"/>
+  <xs:element name="configInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="lable_file_type"/>
+        <xs:element ref="lable_paper_type"/>
+        <xs:element ref="lable_content_type"/>
+        <xs:element ref="additional_info"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lable_file_type" type="xs:NCName"/>
+  <xs:element name="lable_paper_type" type="xs:NCName"/>
+  <xs:element name="lable_content_type" type="xs:NCName"/>
+  <xs:element name="additional_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="lable_print_invoiceinfo"/>
+        <xs:element ref="lable_print_buyerid"/>
+        <xs:element ref="lable_print_datetime"/>
+        <xs:element ref="customsdeclaration_print_actualweight"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lable_print_invoiceinfo" type="xs:NCName"/>
+  <xs:element name="lable_print_buyerid" type="xs:NCName"/>
+  <xs:element name="lable_print_datetime" type="xs:NCName"/>
+  <xs:element name="customsdeclaration_print_actualweight" type="xs:NCName"/>
+  <xs:element name="listorder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="reference_no"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reference_no" type="xs:NCName"/>
+  <xs:element name="shipping_method" type="xs:NCName"/>
+  <xs:element name="extra_service">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="extra_servicecode"/>
+        <xs:element ref="extra_servicenote"/>
+        <xs:element ref="extra_servicevalue"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="extra_servicecode" type="xs:NCName"/>
+  <xs:element name="extra_servicenote" type="xs:NCName"/>
+  <xs:element name="extra_servicevalue" type="xs:NCName"/>
+</xs:schema>
