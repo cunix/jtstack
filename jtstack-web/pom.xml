@@ -3,13 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.jtstack.jtstack</groupId>
-		<artifactId>jtstacnmmk</artifactId>
+		<artifactId>jtstack</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>jtstack-web</artifactId>
 	<packaging>war</packaging>
-
-
 
 	<dependencies>
 
@@ -166,7 +164,6 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-
 		<!-- logback -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -180,7 +177,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
-
 		<!-- POI -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
