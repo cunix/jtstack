@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.jtstack.jtstack</groupId>
-		<artifactId>jtstacnmmk</artifactId>
+		<artifactId>jtstack</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>jtstack-web</artifactId>
@@ -166,7 +166,6 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-
 		<!-- logback -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
