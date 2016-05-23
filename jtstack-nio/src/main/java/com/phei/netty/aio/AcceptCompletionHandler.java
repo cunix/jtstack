@@ -28,8 +28,7 @@ public class AcceptCompletionHandler implements
 	CompletionHandler<AsynchronousSocketChannel, AsyncTimeServerHandler> {
 
     @Override
-    public void completed(AsynchronousSocketChannel result,
-	    AsyncTimeServerHandler attachment) {
+    public void completed(AsynchronousSocketChannel result, AsyncTimeServerHandler attachment) {
 	attachment.asynchronousServerSocketChannel.accept(attachment, this);
 	ByteBuffer buffer = ByteBuffer.allocate(1024);
 	result.read(buffer, buffer, new ReadCompletionHandler(result));
