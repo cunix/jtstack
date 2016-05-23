@@ -9,15 +9,7 @@
 	<artifactId>jtstack-web</artifactId>
 	<packaging>war</packaging>
 
-
-
 	<dependencies>
-
-		<dependency>
-			<groupId>com.yto.ytocustoms</groupId>
-			<artifactId>ytocustoms-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 
 		<!-- 单元测试 -->
 		<dependency>
@@ -179,7 +171,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
-
 		<!-- POI -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>

@@ -19,6 +19,7 @@
 		<module>jtstack-shiro</module>
 		<module>jtstack-zkclient</module>
 		<module>jtstack-dist</module>
+		<module>jtstack-nio</module>
 	</modules>
 
 	<!-- 集中定义依赖版本号 -->
@@ -37,6 +38,7 @@
 		<servlet-api.version>2.5</servlet-api.version>
 		<jsp-api.version>2.0</jsp-api.version>
 		<joda-time.version>2.5</joda-time.version>
+		<logback.version>0.9.24</logback.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>
 		<commons-io.version>1.3.2</commons-io.version>
 	</properties>
@@ -171,6 +173,18 @@
 				<groupId>joda-time</groupId>
 				<artifactId>joda-time</artifactId>
 				<version>${joda-time.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>${logback.version}</version>s
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
 			</dependency>
 
 			<!-- Apache工具组件 -->
