@@ -11,12 +11,6 @@
 
 	<dependencies>
 
-		<dependency>
-			<groupId>com.yto.ytocustoms</groupId>
-			<artifactId>ytocustoms-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
 		<!-- 单元测试 -->
 		<dependency>
 			<groupId>junit</groupId>

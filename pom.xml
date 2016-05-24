@@ -18,6 +18,7 @@
 		<module>jtstack-dubbo</module>
 		<module>jtstack-shiro</module>
 		<module>jtstack-zkclient</module>
+		<module>jtstack-dist</module>
 		<module>jtstack-nio</module>
 	</modules>
 
