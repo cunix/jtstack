@@ -50,6 +50,7 @@ public class MultiplexerTimeServer implements Runnable {
 	public void run() {
 		while (!stop) {
 			try {
+				//每隔一秒唤醒一次
 				selector.select(1000);
 				Set<SelectionKey> selectedKeys = selector.selectedKeys();
 				Iterator<SelectionKey> it = selectedKeys.iterator();
@@ -104,8 +105,7 @@ public class MultiplexerTimeServer implements Runnable {
 					readBuffer.get(bytes);
 					String body = new String(bytes, "UTF-8");
 					System.out.println("The time server receive order : " + body);
-					String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body)
-							? new java.util.Date(System.currentTimeMillis()).toString() : "BAD ORDER";
+					String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body)? new java.util.Date(System.currentTimeMillis()).toString() : "BAD ORDER";
 					doWrite(sc, currentTime);
 				} else if (readBytes < 0) {
 					// 对端链路关闭

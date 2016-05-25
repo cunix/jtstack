@@ -11,7 +11,7 @@ import java.nio.channels.SocketChannel;
 import java.util.List;
 import java.util.Set;
 
-public class NioUserStep {
+public class NioServerApi {
 
 	
 	public static void main(String[] args) throws IOException {

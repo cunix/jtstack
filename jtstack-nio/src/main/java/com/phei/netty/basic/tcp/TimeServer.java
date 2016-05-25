@@ -1,4 +1,4 @@
-package com.phei.netty.basic;
+package com.phei.netty.basic.tcp;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
