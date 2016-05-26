@@ -29,9 +29,7 @@ public class PerformTestUserInfo {
 		}
 		long endTime = System.currentTimeMillis();
 		System.out.println("The jdk serializable cost time is  : " + (endTime - startTime) + " ms");
-
 		System.out.println("-------------------------------------");
-
 		ByteBuffer buffer = ByteBuffer.allocate(1024);
 		startTime = System.currentTimeMillis();
 		for (int i = 0; i < loop; i++) {
