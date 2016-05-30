@@ -11,11 +11,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 
-/**
- * @author lilinfeng
- * @date 2014年2月14日
- * @version 1.0
- */
+
 public class TimeServer {
 
 	public void bind(int port) throws Exception {

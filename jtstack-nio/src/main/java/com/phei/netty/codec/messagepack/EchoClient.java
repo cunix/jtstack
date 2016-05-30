@@ -9,11 +9,6 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-/**
- * @tile
- * @author Wincent<chengwang1992@gmail.com>
- * @date 2016年5月26日 下午1:53:28
- */
 public class EchoClient {
 
 	private final String host;
@@ -40,16 +35,13 @@ public class EchoClient {
 							channel.pipeline().addLast(new EchoClientHandler(sendNumber));
 						}
 					});
-			
+
 			ChannelFuture f = b.connect(host, port).sync();
 			f.channel().closeFuture().sync();
-
 		} catch (Exception e) {
-			// TODO: handle exception
 		} finally {
 			group.shutdownGracefully();
 		}
-
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.phei.netty.codec.messagepack;
+package com.phei.netty.frame.lengthfield;
 
 import java.util.List;
 

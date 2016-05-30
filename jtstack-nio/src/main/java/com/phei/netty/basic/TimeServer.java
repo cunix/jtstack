@@ -16,9 +16,15 @@ public class TimeServer {
 		EventLoopGroup bossGroup = new NioEventLoopGroup();
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
-			//服务端的辅助启动类，目的是降低服务端的开发辅助类
+			// 服务端的辅助启动类，目的是降低服务端的开发辅助类
 			ServerBootstrap b = new ServerBootstrap();
-			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).option(ChannelOption.SO_BACKLOG, 1024).childHandler(new ChildChannelHandler());
+			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).option(ChannelOption.SO_BACKLOG, 1024)
+					.childHandler(new ChannelInitializer<SocketChannel>() {
+						@Override
+						protected void initChannel(SocketChannel sc) throws Exception {
+							sc.pipeline().addLast(new TimeServerHandler());
+						}
+					});
 			// 绑定端口，同步等待成功
 			ChannelFuture f = b.bind(port).sync();
 			// 等待服务端监听端口关闭

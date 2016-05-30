@@ -17,7 +17,6 @@ import io.netty.handler.logging.LoggingHandler;
 
 public class EchoServer {
 	public void bind(int port) throws Exception {
-		// 配置服务端的NIO线程组
 		EventLoopGroup bossGroup = new NioEventLoopGroup();
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
@@ -26,20 +25,19 @@ public class EchoServer {
 					.handler(new LoggingHandler(LogLevel.INFO)).childHandler(new ChannelInitializer<SocketChannel>() {
 						@Override
 						public void initChannel(SocketChannel ch) throws Exception {
+							//$_作为分隔符
 							ByteBuf delimiter = Unpooled.copiedBuffer("$_".getBytes());
+							//第一个参数:1024 表示单条消息的最大长度，如果超过这个长度没有找到分隔符，则报错TooLongFrameException,防止内存溢出
+							//第二个参数:分隔符缓冲对象
 							ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024, delimiter));
 							ch.pipeline().addLast(new StringDecoder());
 							ch.pipeline().addLast(new EchoServerHandler());
 						}
 					});
 
-			// 绑定端口，同步等待成功
 			ChannelFuture f = b.bind(port).sync();
-
-			// 等待服务端监听端口关闭
 			f.channel().closeFuture().sync();
 		} finally {
-			// 优雅退出，释放线程池资源
 			bossGroup.shutdownGracefully();
 			workerGroup.shutdownGracefully();
 		}

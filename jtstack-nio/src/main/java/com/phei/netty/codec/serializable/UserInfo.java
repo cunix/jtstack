@@ -25,36 +25,27 @@ public class UserInfo implements Serializable {
 		return this;
 	}
 
-	/**
-	 * @return the userName
-	 */
+
 	public final String getUserName() {
 		return userName;
 	}
 
-	/**
-	 * @param userName
-	 *            the userName to set
-	 */
 	public final void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	/**
-	 * @return the userID
-	 */
+	
 	public final int getUserID() {
 		return userID;
 	}
 
-	/**
-	 * @param userID
-	 *            the userID to set
-	 */
 	public final void setUserID(int userID) {
 		this.userID = userID;
 	}
 
+	/**
+	 * ByteBuffer的通用二进制编码技术对UserInfo对象进行编码，编码结果任然是byte数组，可以和java的编解码进行udixiang
+	 */
 	public byte[] codeC() {
 		ByteBuffer buffer = ByteBuffer.allocate(1024);
 		byte[] value = this.userName.getBytes();

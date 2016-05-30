@@ -1,4 +1,4 @@
-package com.phei.netty.codec.messagepack;
+package com.phei.netty.frame.lengthfield;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -8,21 +8,14 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import io.netty.handler.codec.LengthFieldPrepender;
 
-public class EchoServer {
 
-	private final String host;
-	private final int port;
-	private final int sendNumber;
+public class TimeServer {
 
-	public EchoServer(String host, int port, int sendNumber) {
-		super();
-		this.host = host;
-		this.port = port;
-		this.sendNumber = sendNumber;
-	}
-
-	public void run() throws Exception {
+	public void bind(int port) throws Exception {
+		// 配置服务端的NIO线程组
 		EventLoopGroup bossGroup = new NioEventLoopGroup();
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
@@ -30,23 +23,35 @@ public class EchoServer {
 			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).option(ChannelOption.SO_BACKLOG, 1024)
 					.childHandler(new ChannelInitializer<Channel>() {
 						@Override
-						protected void initChannel(Channel channel) throws Exception {
-							channel.pipeline().addLast("hello netty msgpack decoder", new MsgPackDecoder());
-							channel.pipeline().addLast("hello netty msgpack encoder", new MsgPackEncoder());
-							channel.pipeline().addLast(new EchoServerHandler());
+						protected void initChannel(Channel ch) throws Exception {
+							ch.pipeline().addLast("frameDecoder", new LengthFieldBasedFrameDecoder(65535, 0, 2, 0, 3));
+							ch.pipeline().addLast("msgpack decoder",new MsgPackDecoder());
+							ch.pipeline().addLast("frameEncoder",new LengthFieldPrepender(2));
+							ch.pipeline().addLast("msgpack Encoder",new MsgPackEncoder());
+							ch.pipeline().addLast(new TimeServerHandler());
 						}
 					});
 			// 绑定端口，同步等待成功
 			ChannelFuture f = b.bind(port).sync();
+
 			// 等待服务端监听端口关闭
 			f.channel().closeFuture().sync();
-		} catch (Exception e) {
 		} finally {
 			// 优雅退出，释放线程池资源
 			bossGroup.shutdownGracefully();
 			workerGroup.shutdownGracefully();
 		}
-
 	}
 
+	public static void main(String[] args) throws Exception {
+		int port = 8080;
+		if (args != null && args.length > 0) {
+			try {
+				port = Integer.valueOf(args[0]);
+			} catch (NumberFormatException e) {
+				// 采用默认值
+			}
+		}
+		new TimeServer().bind(port);
+	}
 }

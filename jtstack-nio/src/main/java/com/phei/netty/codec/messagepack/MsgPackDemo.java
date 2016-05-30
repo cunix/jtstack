@@ -7,10 +7,7 @@ import java.util.List;
 import org.msgpack.MessagePack;
 import org.msgpack.template.Templates;
 
-/**
- * @author Wincent<chengwang1992@gmail.com>
- * @date   2016年5月26日 上午11:02:31
- */
+
 public class MsgPackDemo {
 
 	

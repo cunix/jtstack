@@ -13,14 +13,8 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
-/**
- * @author lilinfeng
- * @date 2014年2月14日
- * @version 1.0
- */
 public class EchoServer {
 	public void bind(int port) throws Exception {
-		// 配置服务端的NIO线程组
 		EventLoopGroup bossGroup = new NioEventLoopGroup();
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
@@ -35,13 +29,9 @@ public class EchoServer {
 						}
 					});
 
-			// 绑定端口，同步等待成功
 			ChannelFuture f = b.bind(port).sync();
-
-			// 等待服务端监听端口关闭
 			f.channel().closeFuture().sync();
 		} finally {
-			// 优雅退出，释放线程池资源
 			bossGroup.shutdownGracefully();
 			workerGroup.shutdownGracefully();
 		}

@@ -1,10 +1,5 @@
 package com.phei.netty.codec.messagepack;
 
-/**
- * @tile
- * @author Wincent<chengwang1992@gmail.com>
- * @date   2016年5月26日 下午2:09:07
- */
 public class UserInfo {
 
 	private Integer age;
@@ -21,10 +16,9 @@ public class UserInfo {
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
 }
