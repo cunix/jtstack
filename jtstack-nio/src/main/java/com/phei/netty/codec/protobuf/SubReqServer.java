@@ -14,11 +14,6 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
-/**
- * @author lilinfeng
- * @date 2014年2月14日
- * @version 1.0
- */
 public class SubReqServer {
 	public void bind(int port) throws Exception {
 		// 配置服务端的NIO线程组
@@ -30,23 +25,15 @@ public class SubReqServer {
 					.handler(new LoggingHandler(LogLevel.INFO)).childHandler(new ChannelInitializer<SocketChannel>() {
 						@Override
 						public void initChannel(SocketChannel ch) {
-							// ch.pipeline().addLast(
-							// new ProtobufVarint32FrameDecoder());
-							ch.pipeline()
-									.addLast(new ProtobufDecoder(SubscribeReqProto.SubscribeReq.getDefaultInstance()));
+							ch.pipeline().addLast(new ProtobufDecoder(SubscribeReqProto.SubscribeReq.getDefaultInstance()));
 							ch.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
 							ch.pipeline().addLast(new ProtobufEncoder());
 							ch.pipeline().addLast(new SubReqServerHandler());
 						}
 					});
-
-			// 绑定端口，同步等待成功
 			ChannelFuture f = b.bind(port).sync();
-
-			// 等待服务端监听端口关闭
 			f.channel().closeFuture().sync();
 		} finally {
-			// 优雅退出，释放线程池资源
 			bossGroup.shutdownGracefully();
 			workerGroup.shutdownGracefully();
 		}

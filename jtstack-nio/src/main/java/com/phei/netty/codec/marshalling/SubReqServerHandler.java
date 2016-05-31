@@ -7,11 +7,6 @@ import io.netty.channel.ChannelHandlerContext;
 import com.phei.netty.codec.pojo.SubscribeReq;
 import com.phei.netty.codec.pojo.SubscribeResp;
 
-/**
- * @author lilinfeng
- * @date 2014年2月14日
- * @version 1.0
- */
 @Sharable
 public class SubReqServerHandler extends ChannelHandlerAdapter {
 

@@ -2,7 +2,6 @@ package com.phei.netty.codec.protobuf;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.google.protobuf.InvalidProtocolBufferException;
 
 public class TestSubscribeReqProto {
@@ -28,10 +27,6 @@ public class TestSubscribeReqProto {
 		return builder.build();
 	}
 
-	/**
-	 * @param args
-	 * @throws InvalidProtocolBufferException
-	 */
 	public static void main(String[] args) throws InvalidProtocolBufferException {
 		SubscribeReqProto.SubscribeReq req = createSubscribeReq();
 		System.out.println("Before encode : " + req.toString());

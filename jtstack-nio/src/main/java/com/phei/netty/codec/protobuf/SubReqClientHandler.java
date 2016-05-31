@@ -6,16 +6,8 @@ import io.netty.channel.ChannelHandlerContext;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author lilinfeng
- * @date 2014年2月14日
- * @version 1.0
- */
 public class SubReqClientHandler extends ChannelHandlerAdapter {
 
-	/**
-	 * Creates a client-side handler.
-	 */
 	public SubReqClientHandler() {
 	}
 

@@ -1,7 +1,7 @@
 package com.phei.netty.codec.protobuf;
 
 public final class SubscribeRespProto {
-	
+
 	private SubscribeRespProto() {
 	}
 
@@ -10,42 +10,18 @@ public final class SubscribeRespProto {
 
 	public interface SubscribeRespOrBuilder extends com.google.protobuf.MessageOrBuilder {
 
-		// required int32 subReqID = 1;
-		/**
-		 * <code>required int32 subReqID = 1;</code>
-		 */
 		boolean hasSubReqID();
 
-		/**
-		 * <code>required int32 subReqID = 1;</code>
-		 */
 		int getSubReqID();
 
-		// required int32 respCode = 2;
-		/**
-		 * <code>required int32 respCode = 2;</code>
-		 */
 		boolean hasRespCode();
 
-		/**
-		 * <code>required int32 respCode = 2;</code>
-		 */
 		int getRespCode();
 
-		// required string desc = 3;
-		/**
-		 * <code>required string desc = 3;</code>
-		 */
 		boolean hasDesc();
 
-		/**
-		 * <code>required string desc = 3;</code>
-		 */
 		java.lang.String getDesc();
 
-		/**
-		 * <code>required string desc = 3;</code>
-		 */
 		com.google.protobuf.ByteString getDescBytes();
 	}
 
