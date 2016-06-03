@@ -19,7 +19,8 @@ public class HttpXmlResponseEncoder extends AbstractHttpXmlEncoder<HttpXmlRespon
 		if (response == null) {
 			response = new DefaultFullHttpResponse(HTTP_1_1, OK, body);
 		} else {
-			response = new DefaultFullHttpResponse(msg.getHttpResponse().getProtocolVersion(),msg.getHttpResponse().getStatus(), body);
+			response = new DefaultFullHttpResponse(msg.getHttpResponse().getProtocolVersion(),
+					msg.getHttpResponse().getStatus(), body);
 		}
 		response.headers().set(CONTENT_TYPE, "text/xml");
 		setContentLength(response, body.readableBytes());

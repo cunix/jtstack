@@ -2,9 +2,7 @@ package com.phei.netty.protocol.http.xml.codec;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.MessageToMessageEncoder;
 
 import java.io.StringWriter;
@@ -33,13 +31,7 @@ public abstract class AbstractHttpXmlEncoder<T> extends MessageToMessageEncoder<
 		return encodeBuf;
 	}
 
-	/**
-	 * Calls {@link ChannelHandlerContext#fireExceptionCaught(Throwable)} to
-	 * forward to the next {@link ChannelHandler} in the {@link ChannelPipeline}
-	 * .
-	 * 
-	 * Sub-classes may override this method to change behavior.
-	 */
+
 	@Skip
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {

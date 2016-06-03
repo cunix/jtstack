@@ -35,8 +35,7 @@ public class HttpXmlRequestDecoder extends AbstractHttpXmlDecoder<FullHttpReques
 	}
 
 	private static void sendError(ChannelHandlerContext ctx, HttpResponseStatus status) {
-		FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, status,
-				Unpooled.copiedBuffer("Failure: " + status.toString() + "\r\n", CharsetUtil.UTF_8));
+		FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, status,Unpooled.copiedBuffer("Failure: " + status.toString() + "\r\n", CharsetUtil.UTF_8));
 		response.headers().set(CONTENT_TYPE, "text/plain; charset=UTF-8");
 		ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
 	}
