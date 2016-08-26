@@ -8,6 +8,7 @@ import com.phei.netty.protocol.netty.struct.Header;
 import com.phei.netty.protocol.netty.struct.NettyMessage;
 
 public class HeartBeatRespHandler extends ChannelHandlerAdapter {
+	
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		NettyMessage message = (NettyMessage) msg;

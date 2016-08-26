@@ -9,7 +9,6 @@
 	<artifactId>jtstack-nio</artifactId>
 	<packaging>war</packaging>
 
-
 	<dependencies>
 		<!-- <dependency> <groupId>io.netty</groupId> <artifactId>netty-all</artifactId> 
 			<version>4.0.29.Final</version> </dependency> <dependency> <groupId>org.jboss.marshalling</groupId> 
@@ -21,6 +20,12 @@
 			<groupId>org.msgpack</groupId>
 			<artifactId>msgpack</artifactId>
 			<version>0.6.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>5.0.0.Alpha1</version>
 		</dependency>
 
 	</dependencies>

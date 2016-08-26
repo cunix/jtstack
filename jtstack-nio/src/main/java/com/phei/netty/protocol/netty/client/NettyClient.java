@@ -27,7 +27,6 @@ public class NettyClient {
 	public void connect(int port, String host) throws Exception {
 
 		// 配置客户端NIO线程组
-
 		try {
 			Bootstrap b = new Bootstrap();
 			b.group(group).channel(NioSocketChannel.class).option(ChannelOption.TCP_NODELAY, true)

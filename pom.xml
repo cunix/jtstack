@@ -20,6 +20,7 @@
 		<module>jtstack-zkclient</module>
 		<module>jtstack-dist</module>
 		<module>jtstack-nio</module>
+		<module>jtstack-concurrent</module>
 	</modules>
 
 	<!-- 集中定义依赖版本号 -->

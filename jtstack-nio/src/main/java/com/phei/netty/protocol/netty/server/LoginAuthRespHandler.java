@@ -1,9 +1,7 @@
 package com.phei.netty.protocol.netty.server;
 
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelPipeline;
 
 import java.net.InetSocketAddress;
 import java.util.Map;
@@ -21,7 +19,6 @@ public class LoginAuthRespHandler extends ChannelHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		NettyMessage message = (NettyMessage) msg;
-
 		// 如果是握手请求消息，处理，其它消息透传
 		if (message.getHeader() != null && message.getHeader().getType() == MessageType.LOGIN_REQ.value()) {
 			String nodeIndex = ctx.channel().remoteAddress().toString();
